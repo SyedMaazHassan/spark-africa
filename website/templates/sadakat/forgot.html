@@ -1,0 +1,67 @@
+{% extends 'sadakat/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- start preloader -->
+    <div class="preloader">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+    <!-- end preloader -->
+    <div class="tp-login-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form class="tp-accountWrapper" action="#">
+                        <div class="tp-accountInfo">
+                            <div class="tp-accountInfoHeader">
+                                <a href="#"><img src="assets/images/logo.png" alt=""></a>
+                                <a class="tp-accountBtn" href="register.html">
+                                    Create Account
+                                </a>
+                            </div>
+                            <div class="image">
+                                <img src="assets/images/login.svg" alt="">
+                            </div>
+                            <div class="back-home">
+                                <a class="tp-accountBtn" href="index.html">
+                                    Back To Home
+                                </a>
+                            </div>
+                        </div>
+                        <div class="tp-accountForm form-style">
+                            <div class="fromTitle">
+                                <h2>Reset Password</h2>
+                                <p>Sign into your pages account</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <label>Email</label>
+                                    <input type="text" id="email" name="email" placeholder="Your email here..">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <button type="submit" class="tp-accountBtn">Resend Password</button>
+                                </div>
+                            </div>
+                            <h4 class="or"><span>OR</span></h4>
+                            <ul class="tp-socialLoginBtn">
+                                <li><button class="facebook" tabindex="0" type="button"><span><i class="fa fa-facebook"></i></span></button></li>
+                                <li><button class="twitter" tabindex="0" type="button"><span><i class="fa fa-twitter"></i></span></button></li>
+                                <li><button class="linkedin" tabindex="0" type="button"><span><i class="fa fa-linkedin"></i></span></button></li>
+                            </ul>
+                            <p class="subText">Don't have an account? <a href="register.html">Create free account</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- theme-change-btn -->
+    <div class="theme-change-btn">
+        <button id="change-theme-btn">Light</button>
+   </div>
+   {% endblock %}
