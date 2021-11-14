@@ -1,10 +1,7 @@
 from django.contrib import admin
-from . import models
+from .models import *
 
-
-class LeadAdmin(admin.ModelAdmin):
-    list_display = ('id', 'email', 'registered_on')
-    search_fields = ( 'email', 'registered_on' )
-
-
-admin.site.register(models.Lead, LeadAdmin)
+admin.site.register(User)
+admin.site.register(Cause)
+admin.site.register(EventCategory)
+admin.site.register(Event)

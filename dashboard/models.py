@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 UserModel = get_user_model()
 
+
 class EventCategory(models.Model):
     name = models.CharField(max_length=255, unique=True)
     code = models.CharField(max_length=6, unique=True)
@@ -33,11 +34,13 @@ class EventCategory(models.Model):
     def get_absolute_url(self):
         return reverse('event-category-list')
 
+
 class JobCategory(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
         return self.name
+
 
 class Event(models.Model):
     category = models.ForeignKey(EventCategory, on_delete=models.CASCADE)
@@ -82,6 +85,7 @@ class Event(models.Model):
             obj.created_by = request.user
         obj.updated_by = request.user
         obj.save()
+
 
 class EventImage(models.Model):
     event = models.OneToOneField(Event, on_delete=models.CASCADE)
@@ -201,12 +205,3 @@ class UserCoin(models.Model):
     
     def get_absolute_url(self):
         return reverse('user-mark')
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,74 @@
+{% extends 'sadakat/base.html' %}
+{% load static %}
+{% block content %}
+
+
+        </header>
+        <!-- end of header -->
+        <!-- .tp-breadcumb-area start -->
+        <div class="tp-breadcumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tp-breadcumb-wrap">
+                            <h2>Event Details</h2>
+                            <ul>
+                                <li><a href="{% url 'website_home' %}">Home</a></li>
+                                <li><span>Event</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .tp-breadcumb-area end -->
+        
+        <!-- start event-section -->
+<div class="about-style-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-12">
+                        <div class="about-img">
+<!--                            <img src="{% static 'website/assets/images/Volunteers.jpg' %}" alt="">-->
+                            <img src="{{ event.image.url }}" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 col-12">
+                        <div class="about-content">
+                            <div class="section-title">
+                                <h2> {{ event.title }} </h2>
+                            </div>
+                            <div class="details">
+                                    <ul class="entry-meta">
+                                        <li><i class="ti-calendar"></i> {{ event.start_date }}</li>
+                                        <li><i class="ti-folder"></i> {{ event.category }}</li>
+                                    </ul>
+<!--                                    <h3><a href="event-single.html">{{ event.title }}</a></h3>-->
+                                </div>
+                            <p> {{ event.long_description }} </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end event-section -->
+
+    </div>
+    <!-- end of page-wrapper -->
+    <!-- theme-change-btn -->
+    <div class="theme-change-btn">
+         <button id="change-theme-btn">
+            <span class="cng-btn-1">Light <i class="ti-palette"></i></span>
+            <span class="cng-btn-2">Dark  <i class="ti-palette"></i></span>
+        </button>
+    </div>
+    <div id="magic-cursor">
+        <div id="ball">
+            <div id="ball-drag-x"></div>
+            <div id="ball-drag-y"></div>
+            <div id="ball-loader"></div>
+        </div>
+    </div>
+  {% endblock %}

@@ -89,9 +89,9 @@
                                 <li><a href="{% url 'account_login' %}">Login</a></li>
                                 <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
                                 
-                              <!--  <li><a class="theme-btn" href="{% url 'donate' %}">Donate Now</a></li> --> 
+                              <!--  <li><a class="theme-btn" href="#">Donate Now</a></li> -->
                             <!--      <li> <strong> | </strong>  </li>  --> 
-                            <!--    <li><a class="fa fa-dashboard" style="font-size:48px" href="{% url 'dashboard_home' %}"> </a></li> --> 
+                            <!--    <li><a class="fa fa-dashboard" style="font-size:48px" href="#"> </a></li> -->
 
                             </ul>
                         </div>
@@ -122,7 +122,7 @@
                             <a href="{% url 'causes' %}">Causes</a>
                         </li>
                         
-                        <li><a href="{% url 'event' %}">Event</a></li>
+                        <li><a href="{% url 'event' %}">Events</a></li>
 
                         <li><a href="{% url 'about' %}">About</a></li>
 
@@ -182,10 +182,14 @@
                 </div>
             </div><!-- end of container -->
         </nav>
-        
+
+
         {% block content %}
         {% endblock %}
 
+{% include 'sadakat/analytics.html' %}
+{% include 'sadakat/newsletter.html' %}
+{% include 'sadakat/footer.html' %}
 
  <!-- All JavaScript files
     ================================================== -->

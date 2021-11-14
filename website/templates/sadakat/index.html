@@ -71,47 +71,6 @@
             </div>
         </section>
         <!-- end of hero slider -->
-        <!-- features start -->
-        <!-- <div class="features-area ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="features-item-2">
-                            <div class="features-icon">
-                                <i class="fi flaticon-salad"></i>
-                            </div>
-                            <div class="features-content">
-                                <p>Health For</p>
-                                <h3>Healthy Food</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="features-item-2">
-                            <div class="features-icon">
-                                <i class="fi flaticon-school"></i>
-                            </div>
-                            <div class="features-content">
-                                <p>Get Free</p>
-                                <h3>Pure Education</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="features-item-2">
-                            <div class="features-icon">
-                                <i class="fi flaticon-medicine"></i>
-                            </div>
-                            <div class="features-content">
-                                <p>Get Free</p>
-                                <h3>Medical Facilities</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!--features-features end -->
         <!-- about-area start-->
         <div class="about-style-2">
             <div class="container">
@@ -138,7 +97,7 @@
                             <p> This immense latent potential of youth can be harnessed by providing appropriate trainings and youth involvement in policy making.  Our youth empowerment programs encompass a multi-pronged strategy focusing on providing opportunities and a facilitating environment for youth to transpire as agents of positive change.
                                 Sparks of Africa seeks to work with key stakeholders to ensure equal opportunities for all youngsters to participate and contribute to the socio-economic as well as political development processes for future.  </p>
                             <div class="btns">
-                                <div><a class="theme-btn" href="{% url 'about' %}}">More About Us..</a></div>
+                                <div><a class="theme-btn" href="{% url 'about' %}">More About Us..</a></div>
                             </div>
                             <div class="signature">
                                 <img src="{% static 'website/assets/images/img-1.png' %}" alt="">
@@ -149,6 +108,47 @@
             </div>
         </div>
         <!-- about-area end-->
+        <!--features start -->
+        <div class="features-area features-area-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="features-item-2">
+                            <div class="features-icon">
+                                <i class="fi flaticon-salad"></i>
+                            </div>
+                            <div class="features-content">
+                                <p>Raising awareness about education & other child rights in Nigeria </p>
+                                <h3>Children</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="features-item-2">
+                            <div class="features-icon">
+                                <i class="fi flaticon-school"></i>
+                            </div>
+                            <div class="features-content">
+                                <p>Empowering youth through skill development, advocacy & higher education</p>
+                                <h3>Youth </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="features-item-2">
+                            <div class="features-icon">
+                                <i class="fi flaticon-medicine"></i>
+                            </div>
+                            <div class="features-content">
+                                <p>Working towards clean drinking water & environmental sustainability in Africa</p>
+                                <h3>Environment </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--features-features end -->
         <!-- case-area-start -->
         <div class="case-area section-padding">
             <div class="container">
@@ -161,51 +161,12 @@
                     </div>
                 </div>
                 <div class="row">
+                    {% for cause in causes %}
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="cause-item">
                             <div class="cause-top">
                                 <div class="cause-img">
-                                    <img src="{% static 'website/assets/images/cause/img-1.png' %}" alt="">
-                                    <div class="case-btn">
-                                        <a href="{% url 'donate' %}}" class="theme-btn">Donate Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : ${{ goal }}</a></li>
-                                    <li><a href="#">RISED : {{ rised }}</a></li>
-                                </ul>
-                                <h3><a href="{% url 'causes' %}}">Skill Development </a></h3>
-                                <p>High-tech Innovation and entrepreneurship programs for youth</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="{% static 'website/assets/images/cause/img-2.jpg' %}" alt="">
-                                    <div class="case-btn">
-                                        <a href="{% url 'donate' %}}" class="theme-btn">Donate Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $ {{ goal2 }} </a></li>
-                                    <li><a href="#">RISED : ${{ rised2 }} </a></li>
-                                </ul>
-                                <h3><a href="{% url 'causes' %}">Drops of Life	</a></h3>
-                                <p>Working to provide clean water for communities.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="{% static 'website/assets/images/cause/img-3.jpg' %}" alt="">
+                                    <img src="{{ cause.picture.url }}" alt="">
                                     <div class="case-btn">
                                         <a href="{% url 'donate' %}" class="theme-btn">Donate Now</a>
                                     </div>
@@ -213,114 +174,55 @@
                             </div>
                             <div class="cause-text">
                                 <ul>
-                                    <li><a href="#">GOAL : ${{ goal3 }}</a></li>
-                                    <li><a href="#">RISED : ${{rised3 }}</a></li>
+                                    <li><a href="#">GOAL ${{ cause.goal|floatformat:0 }}</a></li>
+                                    <li><a href="#">RISED ${{ cause.rise|floatformat:0 }}</a></li>
                                 </ul>
-                                <h3><a href="causes.html">Youngsters Rule</a></h3>
-                                <p>Training the youth for involvement in local and national politics.</p>
+                                <h3><a href="{% url 'causes' %}}">{{ cause.title }} </a></h3>
+                                <p>{{ cause.description }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="{% static 'website/assets/images/cause/img-4.jpg' %}" alt="">
-                                    <div class="case-btn">
-                                        <a href="{% url 'donate' %}" class="theme-btn">Donate Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $ {{ goal4 }}</a></li>
-                                    <li><a href="#">RISED : $ {{rised4 }}</a></li>
-                                </ul>
-                                <h3><a href="{% url 'causes' %}">Future of Africa</a></h3>
-                                <p>Child rights campaigning and promotion in Nigeria </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="{% static 'website/assets/images/cause/img-5.jpg' %}" alt="">
-                                    <div class="case-btn">
-                                        <a href="{% url 'donate' %}" class="theme-btn">Donate Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : ${{ goal5 }}</a></li>
-                                    <li><a href="#">RISED : ${{ rised5 }}</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Polishing our diamonds</a></h3>
-                                <p>Sourcing scholarships for youngsters to study abroad</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="{% static 'website/assets/images/cause/img-6.jpg' %}" alt="">
-                                    <div class="case-btn">
-                                        <a href="donate.html" class="theme-btn">Donate Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">GOAL : $9860</a></li>
-                                    <li><a href="#">RISED : $768</a></li>
-                                </ul>
-                                <h3><a href="causes.html">Recycling For Charity</a></h3>
-                                <p>It is a long established fact that a reader will be distracted.</p>
-                            </div>
-                        </div>
-                    </div> -->
+                    {% endfor %}
                 </div>
             </div>
         </div>
         <!-- case-area-end -->
-        <!-- .tp-counter-area start -->
-        <div class="tp-counter-area">
+        <!-- Event-area-start -->
+        <div class="case-area section-padding">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="tp-counter-grids">
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count={{donation}}>00</span>+</h2>
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="section-title text-center">
+                        <div class="thumb-text">
+                            <span>Events</span>
+                        </div>
+                        <h2>Lets catch up on something big.</h2>
+                    </div>
+                </div>
+                    {% for event in events %}
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="cause-item">
+                            <div class="cause-top">
+                                <div class="cause-img">
+                                    <img src="{{ event.image.url }}" alt="">
+                                    <div class="case-btn">
+                                        <a href="{% url 'donate' %}" class="theme-btn">Donate Now</a>
+                                    </div>
                                 </div>
-                                <p>Donation</p>
                             </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count={{fundraised}}>00</span>+</h2>
-                                </div>
-                                <p>Fund Raised</p>
-                            </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count={{volunteers}}>00</span>+</h2>
-                                </div>
-                                <p>Volunteers</p>
-                            </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count={{projects}}>00</span>+</h2>
-                                </div>
-                                <p>Projects</p>
+                            <div class="cause-text">
+                                <ul>
+                                    <li><a href="#">{{ event.start_date }}</a></li>
+<!--                                    <li><a href="#">{{ event.end_date }}</a></li>-->
+                                </ul>
+                                <h3><a href="#">{{ event.title }} </a></h3>
+                                <p>{{ event.description }}</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                    {% endfor %}
             </div>
         </div>
-        <!-- .tp-counter-area end -->
+        <!-- case-area-end -->
         <!--Start project area-->
         <!-- <section id="protfolio" class="gallery-section section-padding">
             <div class="container">
@@ -522,8 +424,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="tp-cta-text">
-                            <h2>Help empower African youth with us</h2>
-                            <p> Join Sparks of Africa as a volunteer or work with us to promote child rights, youth empowerment programs and environmental sustainability in Nigeria. </p>
+                            <h2>Become a Volunteer</h2>
+                            <p>Join us as a Volunteer and contribute to the noble initiatives taken up by Sparks of Africa  </p>
                             <div class="btns">
                                 <a href="{% url 'donate' %} " class="theme-btn">Donate Now</a>
                                 <a href="{% url 'volunteer' %} " class="theme-btn-s2">Join Us Now</a>
@@ -600,143 +502,118 @@
             <!-- </div> end container -->
         <!-- </section> -->
         <!-- end blog-section -->
-        <!-- news-letter-section start-->
-        <section class="news-letter-section">
-            <div class="container">
-                <div class="news-letter-wrap">
-                    <div class="row">
-                        <div class="col col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2">
-                            <div class="newsletter">
-                                <h3>Subscribe our Newsletter</h3>
-                                <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
-                                <div class="newsletter-form">
-                                    <form action="{% url 'website_home' %}" method="POST">
-                                        <div>
-                                            {% csrf_token %}
-                                            <input type="text" placeholder="Enter Your Email" class="form-control">
-                                            <button class="bigCursor" type="submit">Subscribe</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end container -->
-        </section>
-        <!-- news-letter-section end-->
-        <div class="tp-ne-footer">
-            <!-- start tp-site-footer -->
-            <footer class="tp-site-footer">
-                <div class="tp-upper-footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col col-lg-3 col-md-3 col-sm-6">
-                                <div class="widget about-widget">
-                                    <div class="logo widget-title">
-                                        <img class="ft-logo-1" src="{% static 'website/assets/images/logo.png' %}" alt="blog">
-                                        <img class="ft-logo-2" src="{% static 'website/assets/images/logo-2.png' %}" alt="blog">
-                                    </div>
-                                    <p>Build and Earn with your online store with lots of cool and exclusive tp-features </p>
-                                    <ul>
-                                        <li>
-                                            <div class="parallax-wrap">
-                                                <div class="parallax-element">
-                                                    <a href="#">
-                                                        <i class="ti-facebook"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="parallax-wrap">
-                                                <div class="parallax-element">
-                                                    <a href="#">
-                                                        <i class="ti-twitter-alt"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="parallax-wrap">
-                                                <div class="parallax-element">
-                                                    <a href="#">
-                                                        <i class="ti-instagram"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="parallax-wrap">
-                                                <div class="parallax-element">
-                                                    <a href="#">
-                                                        <i class="ti-google"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col col-lg-2 col-md-3 col-sm-6">
-                                <div class="widget link-widget">
-                                    <div class="widget-title">
-                                        <h3>Useful Links</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="causes.html">Our Causes</a></li>
-                                        <li><a href="donate.html">Donate</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                        <li><a href="event.html">Our Event</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col col-lg-3 col-lg-offset-1 col-md-3 col-sm-6">
-                                <div class="widget market-widget tp-service-link-widget">
-                                    <div class="widget-title">
-                                        <h3>Contact </h3>
-                                    </div>
-                                    <p>online store with lots of cool and exclusive tp-features</p>
-                                    <div class="contact-ft">
-                                        <ul>
-                                            <li><i class="fi flaticon-pin"></i>28 Street, New York City, USA</li>
-                                            <li><i class="fi flaticon-call"></i>+000123456789</li>
-                                            <li><i class="fi flaticon-envelope"></i>Sadakat@gmail.com</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-lg-3 col-md-3 col-sm-6">
-                                <div class="widget instagram">
-                                    <div class="widget-title">
-                                        <h3>Instagram</h3>
-                                    </div>
-                                    <ul class="d-flex">
-                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/1.jpg' %}" alt=""></a></li>
-                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/2.jpg' %}" alt=""></a></li>
-                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/3.jpg' %}" alt=""></a></li>
-                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/4.jpg' %}" alt=""></a></li>
-                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/5.jpg' %}" alt=""></a></li>
-                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/6.jpg' %}" alt=""></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- end container -->
-                </div>
-                <div class="tp-lower-footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col col-xs-12">
-                                <p class="copyright">&copy; 2021 Sadakat. All rights reserved</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- end tp-site-footer -->
-        </div>
+<!--        <div class="tp-ne-footer">-->
+<!--            &lt;!&ndash; start tp-site-footer &ndash;&gt;-->
+<!--            <footer class="tp-site-footer">-->
+<!--                <div class="tp-upper-footer">-->
+<!--                    <div class="container">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col col-lg-3 col-md-3 col-sm-6">-->
+<!--                                <div class="widget about-widget">-->
+<!--                                    <div class="logo widget-title">-->
+<!--                                        <img class="ft-logo-1" src="{% static 'website/assets/images/logo.png' %}" alt="blog">-->
+<!--                                        <img class="ft-logo-2" src="{% static 'website/assets/images/logo-2.png' %}" alt="blog">-->
+<!--                                    </div>-->
+<!--&lt;!&ndash;                                    <p>Build and Earn with your online store with lots of cool and exclusive tp-features </p>&ndash;&gt;-->
+<!--                                    <ul>-->
+<!--                                        <li>-->
+<!--                                            <div class="parallax-wrap">-->
+<!--                                                <div class="parallax-element">-->
+<!--                                                    <a href="#">-->
+<!--                                                        <i class="ti-facebook"></i>-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <div class="parallax-wrap">-->
+<!--                                                <div class="parallax-element">-->
+<!--                                                    <a href="#">-->
+<!--                                                        <i class="ti-twitter-alt"></i>-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <div class="parallax-wrap">-->
+<!--                                                <div class="parallax-element">-->
+<!--                                                    <a href="#">-->
+<!--                                                        <i class="ti-instagram"></i>-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <div class="parallax-wrap">-->
+<!--                                                <div class="parallax-element">-->
+<!--                                                    <a href="#">-->
+<!--                                                        <i class="ti-google"></i>-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col col-lg-2 col-md-3 col-sm-6">-->
+<!--                                <div class="widget link-widget">-->
+<!--                                    <div class="widget-title">-->
+<!--                                        <h3>Useful Links</h3>-->
+<!--                                    </div>-->
+<!--                                    <ul>-->
+<!--                                        <li><a href="{% url 'about' %}">About Us</a></li>-->
+<!--                                        <li><a href="{% url 'causes' %}">Our Causes</a></li>-->
+<!--                                        <li><a href="{% url 'donate' %}">Donate</a></li>-->
+<!--                                        <li><a href="{% url 'contact' %}">Contact Us</a></li>-->
+<!--                                        <li><a href="{% url 'event' %}">Our Event</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col col-lg-3 col-lg-offset-1 col-md-3 col-sm-6">-->
+<!--                                <div class="widget market-widget tp-service-link-widget">-->
+<!--                                    <div class="widget-title">-->
+<!--                                        <h3>Contact </h3>-->
+<!--                                    </div>-->
+<!--                                    <p>online store with lots of cool and exclusive tp-features</p>-->
+<!--                                    <div class="contact-ft">-->
+<!--                                        <ul>-->
+<!--                                            <li><i class="fi flaticon-pin"></i>28 Street, New York City, USA</li>-->
+<!--                                            <li><i class="fi flaticon-call"></i>+000123456789</li>-->
+<!--                                            <li><i class="fi flaticon-envelope"></i>Sadakat@gmail.com</li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col col-lg-3 col-md-3 col-sm-6">-->
+<!--                                <div class="widget instagram">-->
+<!--                                    <div class="widget-title">-->
+<!--                                        <h3>Instagram</h3>-->
+<!--                                    </div>-->
+<!--                                    <ul class="d-flex">-->
+<!--                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/1.jpg' %}" alt=""></a></li>-->
+<!--                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/2.jpg' %}" alt=""></a></li>-->
+<!--                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/3.jpg' %}" alt=""></a></li>-->
+<!--                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/4.jpg' %}" alt=""></a></li>-->
+<!--                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/5.jpg' %}" alt=""></a></li>-->
+<!--                                        <li><a href="#"><img src="{% static 'website/assets/images/instragram/6.jpg' %}" alt=""></a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div> &lt;!&ndash; end container &ndash;&gt;-->
+<!--                </div>-->
+<!--                <div class="tp-lower-footer">-->
+<!--                    <div class="container">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col col-xs-12">-->
+<!--                                <p class="copyright">&copy; 2021 Sadakat. All rights reserved</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </footer>-->
+<!--            &lt;!&ndash; end tp-site-footer &ndash;&gt;-->
+<!--        </div>-->
     </div>
     <!-- end of page-wrapper -->
     <!-- theme-change-btn -->

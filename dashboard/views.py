@@ -20,13 +20,10 @@ from .models import (
     EventUserWishList,
     UserCoin,
     EventImage,
-    EventAgenda
-
+    EventAgenda,
 )
 
 from .forms import EventForm, EventImageForm, EventAgendaForm, EventCreateMultiForm
-
-
 
 
 # Event category list view
@@ -276,5 +273,12 @@ def search_event(request):
 
 
 # Create your views here.
-def dashboard_home(request):
-    return render(request, 'dashboard/index.html', {})
+# def dashboard_home(request):
+#     causes = Cause.objects.all()[:6]
+#     context = {'causes': causes}
+#     return render(request, 'dashboard/index.html', context)
+
+
+# def causes(request):
+#     context = {}
+#     return render(request)
