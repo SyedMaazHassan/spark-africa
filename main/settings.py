@@ -99,18 +99,6 @@ WSGI_APPLICATION = 'main.wsgi.application'
 #     }
 #
 # else:
-    
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('dbname'), # os.environ.get('DB_NAME', 'default_value')
-        'USER': os.environ.get('user'),
-        'PASSWORD': os.environ.get('password'),
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-        'OPTIONS': {'sslmode': 'prefer'},
-    }
-}
 
 
 # Password validation
