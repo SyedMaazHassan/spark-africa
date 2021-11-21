@@ -42,7 +42,7 @@
                                         <li><i class="ti-calendar"></i> {{ current_event.start_date }}</li>
                                         <li><i class="ti-folder"></i> {{ current_event.category }}</li>
                                     </ul>
-                                    <h3><a href="event-single.html">{{ current_event.title }}</a></h3>
+                                    <h3><a href="{% url 'event_details' current_event.id %}">{{ current_event.title }}</a></h3>
                                 </div>
                             </div>
                             {% endfor %}

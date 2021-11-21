@@ -178,7 +178,7 @@
                                     <li><a href="#">GOAL ${{ cause.goal|floatformat:0 }}</a></li>
                                     <li><a href="#">RISED ${{ cause.rise|floatformat:0 }}</a></li>
                                 </ul>
-                                <h3><a href="{% url 'causes' %}}">{{ cause.title }} </a></h3>
+                                <h3><a href="{% url 'cause_details' cause.id %}">{{ cause.title }} </a></h3>
                                 <p>{{ cause.description }}</p>
                             </div>
                         </div>
@@ -206,7 +206,7 @@
                                 <div class="cause-img">
                                     <img src="{{ event.image.url }}" alt="">
                                     <div class="case-btn">
-                                        <a href="{% url 'donate' %}" class="theme-btn">Donate Now</a>
+                                        <a href="#" class="theme-btn">Register Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -215,7 +215,7 @@
                                     <li><a href="#">{{ event.start_date }}</a></li>
 <!--                                    <li><a href="#">{{ event.end_date }}</a></li>-->
                                 </ul>
-                                <h3><a href="#">{{ event.title }} </a></h3>
+                                <h3><a href="{% url 'event_details' event.id %}">{{ event.title }} </a></h3>
                                 <p>{{ event.description }}</p>
                             </div>
                         </div>

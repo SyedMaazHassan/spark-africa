@@ -48,7 +48,7 @@
                                     <li><a href="#">GOAL ${{ cause.goal|floatformat:0 }}</a></li>
                                     <li><a href="#">RISED {{ cause.rise|floatformat:0 }}</a></li>
                                 </ul>
-                                <h3><a href="{% url 'causes' %}}">{{ cause.title }} </a></h3>
+                                <h3><a href="{% url 'cause_details' cause.id %}">{{ cause.title }} </a></h3>
                                 <p>{{ cause.description }}</p>
                             </div>
                         </div>
