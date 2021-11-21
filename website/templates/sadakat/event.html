@@ -1,0 +1,97 @@
+{% extends 'sadakat/base.html' %}
+{% load static %}
+{% block content %}
+
+
+        </header>
+        <!-- end of header -->
+        <!-- .tp-breadcumb-area start -->
+        <div class="tp-breadcumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tp-breadcumb-wrap">
+                            <h2>Our Event</h2>
+                            <ul>
+                                <li><a href="{% url 'website_home' %}">Home</a></li>
+                                <li><span>Event</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .tp-breadcumb-area end -->
+        
+        <!-- start event-section -->
+        <section class="event-section section-padding">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Current Events</h2>
+                </div>
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="event-grids clearfix">
+                            {% for current_event in current_events %}
+                            <div class="grid">
+                                <div class="img-holder">
+                                    <img src="{{ current_event.image.url }}" alt>
+                                </div>
+                                <div class="details">
+                                    <ul class="entry-meta">
+                                        <li><i class="ti-calendar"></i> {{ current_event.start_date }}</li>
+                                        <li><i class="ti-folder"></i> {{ current_event.category }}</li>
+                                    </ul>
+                                    <h3><a href="event-single.html">{{ current_event.title }}</a></h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end container -->
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Upcoming Events</h2>
+                </div>
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="event-grids clearfix">
+                            {% for upcoming_event in upcoming_events %}
+                            <div class="grid">
+                                <div class="img-holder">
+                                    <img src="{{ upcoming_event.image.url }}" alt>
+                                </div>
+                                <div class="details">
+                                    <ul class="entry-meta">
+                                        <li><a href="#"><i class="ti-calendar"></i> {{ upcoming_event.start_date }}</a></li>
+                                        <li><a href="#"><i class="ti-folder"></i> {{ upcoming_event.category }}</a></li>
+                                    </ul>
+                                    <h3><a href="event-single.html">{{ upcoming_event.title }}</a></h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end container -->
+        </section>
+        <!-- end event-section -->
+
+    </div>
+    <!-- end of page-wrapper -->
+    <!-- theme-change-btn -->
+    <div class="theme-change-btn">
+         <button id="change-theme-btn">
+            <span class="cng-btn-1">Light <i class="ti-palette"></i></span>
+            <span class="cng-btn-2">Dark  <i class="ti-palette"></i></span>
+        </button>
+    </div>
+    <div id="magic-cursor">
+        <div id="ball">
+            <div id="ball-drag-x"></div>
+            <div id="ball-drag-y"></div>
+            <div id="ball-loader"></div>
+        </div>
+    </div>
+  {% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'sadakat/base.html' %}
+{% load static %}
+{% block content %}
+
+        </header>
+        <!-- end of header -->
+        <!-- .tp-breadcumb-area start -->
+        <div class="tp-breadcumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tp-breadcumb-wrap">
+                            <h2>Our Causes</h2>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><span>Causes</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .tp-breadcumb-area end -->
+        <!-- case-area-start -->
+        <div class="case-area section-padding">
+            <div class="container">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="section-title text-center">
+                        <div class="thumb-text">
+                            <span>CAUSES</span>
+                        </div>
+                        <h2>Latest Caused of Sadakat.</h2>
+                    </div>
+                </div>
+                    {% for cause in causes %}
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="cause-item">
+                            <div class="cause-top">
+                                <div class="cause-img">
+                                    <img src="{{ cause.picture.url }}" alt="">
+                                    <div class="case-btn">
+                                        <a href="{% url 'cause_details' cause.id %}" class="theme-btn">See Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cause-text">
+                                <ul>
+                                    <li><a href="#">GOAL ${{ cause.goal|floatformat:0 }}</a></li>
+                                    <li><a href="#">RISED {{ cause.rise|floatformat:0 }}</a></li>
+                                </ul>
+                                <h3><a href="{% url 'causes' %}}">{{ cause.title }} </a></h3>
+                                <p>{{ cause.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+        <!-- case-area-end -->
+
+    </div>
+    <!-- end of page-wrapper -->
+    <!-- theme-change-btn -->
+    <div class="theme-change-btn">
+         <button id="change-theme-btn">
+            <span class="cng-btn-1">Light <i class="ti-palette"></i></span>
+            <span class="cng-btn-2">Dark  <i class="ti-palette"></i></span>
+        </button>
+    </div>
+    <div id="magic-cursor">
+        <div id="ball">
+            <div id="ball-drag-x"></div>
+            <div id="ball-drag-y"></div>
+            <div id="ball-loader"></div>
+        </div>
+    </div>
+   {% endblock %}

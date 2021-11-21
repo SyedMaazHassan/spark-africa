@@ -1,0 +1,109 @@
+{% extends 'sadakat/base.html' %}
+{% load static %}
+{% block content %}
+   
+          
+        </header>
+        <!-- end of header -->
+        <!-- .tp-breadcumb-area start -->
+        <div class="tp-breadcumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tp-breadcumb-wrap">
+                            <h2>Become a Volunteer</h2>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><span>Volunteer</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .tp-breadcumb-area end -->
+        <!-- volunteer-area-start -->
+        <div class="volunteer-area ">
+            <div class="volunteer-wrap section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="section-title section-title2 text-center">
+                                <div class="thumb-text">
+                                    <span>Volunteer</span>
+                                </div>
+                                <h2>Become a Volunteer</h2>
+                                <p>It is a long established fact that reader distracted by the the readable content off page looking at its layout point.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="volunteer-item">
+                                <div class="volunteer-img-wrap">
+                                    <div class="volunter-img">
+                                        <img src="assets/images/volunteer.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="volunteer-contact">
+                                <div class="volunteer-contact-form">
+                                    <form method="post" class="contact-validation-active" id="contact-form">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="First Name">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group clearfix">
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group form-group-in">
+                                                <label for="file">Upload Your CV</label>
+                                                <input id="file" type="file" class="form-control" name="file">
+                                                <i class="ti-cloud-up"></i>
+                                            </div>
+                                            <div class="col-lg-12 col-12 form-group">
+                                                <textarea class="form-control" name="note" id="note" placeholder="Case Description..."></textarea>
+                                            </div>
+                                            <div class="submit-area col-lg-12 col-12">
+                                                <button type="submit" class="theme-btn submit-btn">Send Message</button>
+                                                <div id="loader">
+                                                    <i class="ti-reload"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix error-handling-messages">
+                                            <div id="success">Thank you</div>
+                                            <div id="error"> Error occurred while sending email. Please try again later. </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- volunteer-area-end -->
+
+    </div>
+    <!-- end of page-wrapper -->
+    <!-- theme-change-btn -->
+    <div class="theme-change-btn">
+         <button id="change-theme-btn">
+            <span class="cng-btn-1">Light <i class="ti-palette"></i></span>
+            <span class="cng-btn-2">Dark  <i class="ti-palette"></i></span>
+        </button>
+    </div>
+    <div id="magic-cursor">
+        <div id="ball">
+            <div id="ball-drag-x"></div>
+            <div id="ball-drag-y"></div>
+            <div id="ball-loader"></div>
+        </div>
+    </div>
+   {% endblock %}

@@ -1,0 +1,435 @@
+{% extends 'sadakat/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- start page-wrapper -->
+    <div class="page-wrapper">
+        <!-- start preloader -->
+        <div class="preloader">
+            <div class="sk-folding-cube">
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+            </div>
+        </div>
+        <!-- end preloader -->
+        <!-- Start header -->
+        <header id="header" class="tp-site-header tp-header-style-3">
+            <div class="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-md-6 col-sm-7 col-12">
+                            <div class="contact-intro">
+                                <ul>
+                                    <li><i class="fi flaticon-call"></i>+000123456789</li>
+                                    <li><i class="fi flaticon-envelope"></i>sadakat@gmail.com</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col col-md-6 col-sm-5 col-12">
+                            <div class="contact-info">
+                                <ul>
+                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="register.html">Sign Up</a></li>
+                                    <li><a class="theme-btn" href="donate.html">Donate Now</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end topbar -->
+            <nav class="navigation navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="open-btn">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse navbar-right navigation-holder">
+                        <button class="close-navbar"><i class="ti-close"></i></button>
+                        <ul class="nav navbar-nav">
+                            <li class="menu-item-has-children">
+                                <a href="#">Home</a>
+                                <ul class="sub-menu">
+                                    <li><a href="index.html">Home style 1</a></li>
+                                    <li><a href="index-2.html">Home style 2</a></li>
+                                    <li><a href="index-3.html">Home style 3</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="about.html">About</a></li>
+                            <li class="menu-item-has-children">
+                                <a href="#">Causes</a>
+                                <ul class="sub-menu">
+                                    <li><a href="causes.html">Causes</a></li>
+                                    <li><a href="causes-single.html">Causes Single</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">Event</a>
+                                <ul class="sub-menu">
+                                    <li><a href="event.html">Event</a></li>
+                                    <li><a href="event-single.html">Event Single</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">Pages</a>
+                                <ul class="sub-menu">
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="donate.html">Donate</a></li>
+                                    <li><a href="volunteer.html">Volunteer</a></li>
+                                    <li><a href="error.html">404 Page</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">Blog</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog.html">Blog right sidebar</a></li>
+                                    <li><a href="blog-left.html">Blog left sidebar</a></li>
+                                    <li><a href="blog-fulwidth.html">Blog fullwidth</a></li>
+                                    <li class="menu-item-has-children">
+                                        <a href="#">Blog details</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="blog-single.html">Blog details right sidebar</a></li>
+                                            <li><a href="blog-single-left.html">Blog details left sidebar</a></li>
+                                            <li><a href="blog-single-fluid.html">Blog details fullwidth</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div><!-- end of nav-collapse -->
+                    <div class="cart-search-contact">
+                        <div class="mini-cart">
+                            <button class="cart-toggle-btn"> <i class="fi flaticon-shopping-bag"></i> <span class="cart-count">02</span></button>
+                            <div class="mini-cart-content">
+                                <div class="mini-cart-title">
+                                    <p>Shopping Cart</p>
+                                </div>
+                                <div class="mini-cart-items">
+                                    <div class="mini-cart-item clearfix">
+                                        <div class="mini-cart-item-image">
+                                            <a href="#"><img src="assets/images/shop/mini/img-1.jpg" alt="Hoodie with zipper"></a>
+                                        </div>
+                                        <div class="mini-cart-item-des">
+                                            <a href="#">Hoodie with zipper</a>
+                                            <span class="mini-cart-item-price">$25.15</span>
+                                            <span class="mini-cart-item-quantity">x 1</span>
+                                        </div>
+                                    </div>
+                                    <div class="mini-cart-item clearfix">
+                                        <div class="mini-cart-item-image">
+                                            <a href="#"><img src="assets/images/shop/mini/img-2.jpg" alt="Hoodie with zipper"></a>
+                                        </div>
+                                        <div class="mini-cart-item-des">
+                                            <a href="#">Hoodie with zipper</a>
+                                            <span class="mini-cart-item-price">$12.99</span>
+                                            <span class="mini-cart-item-quantity">x 2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mini-cart-action clearfix">
+                                    <span class="mini-checkout-price">$255.12</span>
+                                    <a href="" class="theme-btn-s4">View Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-search-form-wrapper">
+                            <button class="search-toggle-btn"><i class="fi flaticon-magnifying-glass"></i></button>
+                            <div class="header-search-form">
+                                <form>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="Search here...">
+                                        <button type="submit"><i class="fi flaticon-magnifying-glass"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end of container -->
+            </nav>
+        </header>
+        <!-- end of header -->
+        <!-- .tp-breadcumb-area start -->
+        <div class="tp-breadcumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tp-breadcumb-wrap">
+                            <h2>Single Event</h2>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><span>Event</span></li>
+                                <li><span>Education for All Children</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .tp-breadcumb-area end -->
+        <!-- tp-event-details-area start -->
+        <div class="tp-case-details-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-md-8">
+                        <div class="tp-case-details-wrap">
+                            <div class="tp-case-details-text">
+                                <div id="Description">
+                                    <div class="tp-case-details-img">
+                                        <img src="assets/images/event-details2.jpg" alt="">
+                                    </div>
+                                    <div class="tp-case-content">
+                                        <div class="tp-case-text-top">
+                                            <h2>Many Children are suffering a lot for food.</h2>
+                                            <div class="case-b-text">
+                                                <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.</p>
+                                                <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.</p>
+                                                <p>But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures.</p>
+                                            </div>
+                                            <div class="case-bb-text">
+                                                <h3>Event Mission</h3>
+                                                <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure.</p>
+                                                <ul>
+                                                    <li>Save The Children’s Role In Fight Against Malnutrition Hailed</li>
+                                                    <li>Charity Can Help Make Smile Of Poor People</li>
+                                                    <li>Else he endures pains to avoid worse pains.</li>
+                                                    <li>We denounce with righteous indignation and dislike men. </li>
+                                                    <li>Financial Help For Poor Families</li>
+                                                </ul>
+                                            </div>
+                                            <div class="case-bb-text">
+                                                <h3>Event Loacation</h3>
+                                                <div id="Map" class="tab-pane">
+                                                    <div class="contact-map">
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.9147703055!2d-74.11976314309273!3d40.69740344223377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbd!4v1547528325671" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="submit-area sub-btn">
+                                                <a href="donate.html" class="theme-btn submit-btn">Donate Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-4">
+                        <div class="tp-blog-sidebar">
+                            <div class="widget search-widget">
+                                <h3>Search Here</h3>
+                                <form>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="Search Post..">
+                                        <button type="submit"><i class="ti-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="widget recent-post-widget">
+                                <h3>Recent posts</h3>
+                                <div class="posts">
+                                    <div class="post">
+                                        <div class="img-holder">
+                                            <img src="assets/images/recent-posts/img-1.jpg" alt>
+                                        </div>
+                                        <div class="details">
+                                            <h4><a href="#">Many Children are suffering a lot for food.</a></h4>
+                                            <span class="date">22 Sep 2021</span>
+                                        </div>
+                                    </div>
+                                    <div class="post">
+                                        <div class="img-holder">
+                                            <img src="assets/images/recent-posts/img-2.jpg" alt>
+                                        </div>
+                                        <div class="details">
+                                            <h4><a href="#">Be kind for the poor people and the kids.</a></h4>
+                                            <span class="date">22 Sep 2021</span>
+                                        </div>
+                                    </div>
+                                    <div class="post">
+                                        <div class="img-holder">
+                                            <img src="assets/images/recent-posts/img-3.jpg" alt>
+                                        </div>
+                                        <div class="details">
+                                            <h4><a href="#">Be soft and kind for the poor people.</a></h4>
+                                            <span class="date">22 Sep 2021</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget tag-widget">
+                                <h3>Tags</h3>
+                                <ul>
+                                    <li><a href="#">Donations</a></li>
+                                    <li><a href="#">Charity</a></li>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">Non Profit</a></li>
+                                    <li><a href="#">Poor People</a></li>
+                                    <li><a href="#">Helping Hand</a></li>
+                                    <li><a href="#">Video</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- tp-event-details-area end -->
+        <!-- news-letter-section start-->
+        <section class="news-letter-section s2">
+            <div class="container">
+                <div class="news-letter-wrap">
+                    <div class="row">
+                        <div class="col col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2">
+                            <div class="newsletter">
+                                <h3>Subscribe our Newsletter</h3>
+                                <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
+                                <div class="newsletter-form">
+                                    <form>
+                                        <div>
+                                            <input type="text" placeholder="Enter Your Email" class="form-control">
+                                            <button class="bigCursor" type="submit">Subscribe</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end container -->
+        </section>
+        <!-- news-letter-section end-->
+        <div class="tp-ne-footer">
+            <!-- start tp-site-footer -->
+            <footer class="tp-site-footer">
+                <div class="tp-upper-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget about-widget">
+                                    <div class="logo widget-title">
+                                        <img class="ft-logo-1" src="assets/images/logo.png" alt="blog">
+                                        <img class="ft-logo-2" src="assets/images/logo-2.png" alt="blog">
+                                    </div>
+                                    <p>Build and Earn with your online store with lots of cool and exclusive tp-features </p>
+                                    <ul>
+                                        <li>
+                                            <div class="parallax-wrap">
+                                                <div class="parallax-element">
+                                                    <a href="#">
+                                                        <i class="ti-facebook"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="parallax-wrap">
+                                                <div class="parallax-element">
+                                                    <a href="#">
+                                                        <i class="ti-twitter-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="parallax-wrap">
+                                                <div class="parallax-element">
+                                                    <a href="#">
+                                                        <i class="ti-instagram"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="parallax-wrap">
+                                                <div class="parallax-element">
+                                                    <a href="#">
+                                                        <i class="ti-google"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col col-lg-2 col-md-3 col-sm-6">
+                                <div class="widget link-widget">
+                                    <div class="widget-title">
+                                        <h3>Useful Links</h3>
+                                    </div>
+                                    <ul>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="causes.html">Our Causes</a></li>
+                                        <li><a href="donate.html">Donate</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="event.html">Our Event</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col col-lg-3 col-lg-offset-1 col-md-3 col-sm-6">
+                                <div class="widget market-widget tp-service-link-widget">
+                                    <div class="widget-title">
+                                        <h3>Contact </h3>
+                                    </div>
+                                    <p>online store with lots of cool and exclusive tp-features</p>
+                                    <div class="contact-ft">
+                                        <ul>
+                                            <li><i class="fi flaticon-pin"></i>28 Street, New York City, USA</li>
+                                            <li><i class="fi flaticon-call"></i>+000123456789</li>
+                                            <li><i class="fi flaticon-envelope"></i>Sadakat@gmail.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget instagram">
+                                    <div class="widget-title">
+                                         <h3>Instagram</h3>
+                                    </div>
+                                    <ul class="d-flex">
+                                        <li><a href="#"><img src="assets/images/instragram/1.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/instragram/2.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/instragram/3.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/instragram/4.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/instragram/5.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/images/instragram/6.jpg" alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- end container -->
+                </div>
+                <div class="tp-lower-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-xs-12">
+                                <p class="copyright">&copy; 2021 Sadakat. All rights reserved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end tp-site-footer -->
+        </div>
+    </div>
+    <!-- end of page-wrapper -->
+    <!-- theme-change-btn -->
+    <div class="theme-change-btn">
+         <button id="change-theme-btn">
+            <span class="cng-btn-1">Light <i class="ti-palette"></i></span>
+            <span class="cng-btn-2">Dark  <i class="ti-palette"></i></span>
+        </button>
+    </div>
+    <div id="magic-cursor">
+        <div id="ball">
+            <div id="ball-drag-x"></div>
+            <div id="ball-drag-y"></div>
+            <div id="ball-loader"></div>
+        </div>
+    </div>
+    {% endblock %}
