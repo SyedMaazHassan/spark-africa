@@ -29,7 +29,6 @@ class Contact(models.Model):
         return self.address
 
 
-
 class Cause(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
@@ -68,3 +67,35 @@ class Event(models.Model):
 
     def __str__(self):
         return str(self.title)
+
+
+class Subscribe(models.Model):
+    email = models.EmailField(null=True, blank=True)
+    creation_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+    def __str__(self):
+        return str(self.email)
+
+
+class Volunteer(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(null=True, blank=True)
+    occupation = models.CharField(max_length=255, null=True, blank=True)
+    picture = models.ImageField(upload_to='volunteer_images/', null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    creation_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+    def __str__(self):
+        return str(self.name)
+
+
+class EventRegistration(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    creation_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+    def __str__(self):
+        return str(self.user)

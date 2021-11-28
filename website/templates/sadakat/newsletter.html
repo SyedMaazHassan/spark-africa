@@ -9,9 +9,9 @@
                                 <h3>Subscribe our Newsletter</h3>
                                 <p> Don't miss out latest causes and events </p>
                                 <div class="newsletter-form">
-                                    <form>
+                                    <form method="post" id="subscribe_to_newsletter">
                                         <div>
-                                            <input type="email" name="email" placeholder="Enter Your Email" class="form-control">
+                                            <input type="email" id="email" placeholder="Enter Your Email" class="form-control">
                                             <button class="bigCursor" type="submit">Subscribe</button>
                                         </div>
                                     </form>
@@ -23,3 +23,25 @@
             </div> <!-- end container -->
         </section>
 <!-- news-letter-section end-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    console.log('READY');
+    $('#subscribe_to_newsletter').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: '/subscribe_to_newsletter/',
+            method: 'post',
+            data: {
+                email: email,
+            },
+            success: function(data){
+                alert('You have Subscribed to Newsletter');
+            },
+            error: function(error){
+                alert('Sorry! There is an error.');
+            }
+        })
+    })
+})
+</script>

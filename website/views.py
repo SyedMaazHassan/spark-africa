@@ -1,20 +1,19 @@
-from django.shortcuts import render
-
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from datetime import datetime
-
-from .models import Lead, Event, Cause,EventCategory,Contact
-
-
+from .forms import ContactForm, VolunteerForm
+from .models import Lead, Event, Cause, EventCategory, Contact, Subscribe, Volunteer, EventRegistration
+from django.http import JsonResponse, HttpResponse
 
 
 def website_home(request):
     causes = Cause.objects.all()[:5]
     events = Event.objects.all()[:5]
+    volunteers = Volunteer.objects.all()[:5]
     context = {
         'causes': causes,
-        'events': events
+        'events': events,
+        'volunteers': volunteers
                }
     if request.method == "POST":
         data = request.POST
@@ -33,7 +32,6 @@ def website_home(request):
             return render(request, 'sadakat/index.html', context=context)         
 
     return render(request, 'sadakat/index.html', context=context)
-
 
 
 def about(request):
@@ -63,21 +61,32 @@ def event_details(request, pk):
 
 
 def contact(request):
-    context = {}
-    template_name = 'sadakat/contact.html',
-
-    if request.method == "POST":
-        data = request.POST
-        Contact.objects.create(
-            name = data['name'],
-            email = data['email'],
-            phone = data['phone'],
-            address = data['address'],
-            note = data['address']
-        )
-        messages.success(request, 'Your message has been sent! Thank You')
-        return render(request, template_name, context=context)
-    return render(request, template_name, context=context)
+    # context = {}
+    # template_name = 'sadakat/contact.html',
+    #
+    # if request.method == "POST":
+    #     data = request.POST
+    #     Contact.objects.create(
+    #         name = data['name'],
+    #         email = data['email'],
+    #         phone = data['phone'],
+    #         address = data['address'],
+    #         note = data['address']
+    #     )
+    #     messages.success(request, 'Your message has been sent! Thank You')
+    #     return render(request, template_name, context=context)
+    # return render(request, template_name, context=context)
+    form = ContactForm()
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request,
+                                 messages.SUCCESS, 'Thanks for contacting Us',
+                                 fail_silently=True)
+            return redirect('website_home')
+    context = {'form': form}
+    return render(request, 'sadakat/contact.html', context)
 
 
 def donate(request):
@@ -101,5 +110,32 @@ def events(request):
 
 
 def volunteer(request):
-    return render(request, 'sadakat/volunteer.html', {})
+    form = VolunteerForm()
+    if request.method == 'POST':
+        form = VolunteerForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request,
+                                 messages.SUCCESS, 'Volunteer created successfully',
+                                 fail_silently=True)
+            return redirect('website_home')
+    context = {'form': form}
+    return render(request, 'sadakat/volunteer.html', context)
 
+
+def subscribe_to_newsletter(request):
+    email = request.GET.get('email')
+    Subscribe.objects.create(
+        email=email
+    )
+    data = {}
+    return JsonResponse(data)
+
+
+def register_to_event(request, pk):
+    event = Event.objects.get(id=pk)
+    EventRegistration.objects.create(
+        user=request.user,
+        event=event
+    )
+    return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))

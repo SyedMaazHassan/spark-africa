@@ -14,5 +14,7 @@ urlpatterns = [
     path('event', views.events, name='event'),
     path('about/', views.about, name='about'),
     path('volunteer', views.volunteer, name='volunteer'),
-    
+    path('subscribe_to_newsletter/', views.subscribe_to_newsletter, name='subscribe_to_newsletter'),
+    path('register_to_event/<str:pk>/', views.register_to_event, name='register_to_event'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

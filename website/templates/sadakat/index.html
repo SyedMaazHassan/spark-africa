@@ -206,7 +206,7 @@
                                 <div class="cause-img">
                                     <img src="{{ event.image.url }}" alt="">
                                     <div class="case-btn">
-                                        <a href="#" class="theme-btn">Register Now</a>
+                                        <a href="{% url 'register_to_event' event.id %}" class="theme-btn">Register Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -334,51 +334,17 @@
                 <div class="row">
                     <div class="col col-xs-12">
                         <div class="team-grids clearfix">
+                            {% for volunteer in volunteers %}
                             <div class="grid">
                                 <div class="img-holder">
-                                    <img src="{% static 'website/assets/images/team/team-1.jpg' %}" alt>
+                                    <img src="{{ volunteer.picture.url }}" alt>
                                 </div>
                                 <div class="details">
-                                    <h3><a href="volunteer.html">Dayo Adebayo</a></h3>
-                                    <p>President & Executive Director</p>
+                                    <h3><a href="#">{{ volunteer.name }}</a></h3>
+                                    <p>{{ volunteer.occupation }}</p>
                                 </div>
                             </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="{% static 'website/assets/images/team/team-2.jpg' %}" alt>
-                                </div>
-                                <div class="details">
-                                    <h3><a href="volunteer.html">Fatima Mohammed </a></h3>
-                                    <p> Director</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="{% static 'website/assets/images/team/team-3.jpg' %}" alt>
-                                </div>
-                                <div class="details">
-                                    <h3><a href="volunteer.html">Jimi Ayodele</a></h3>
-                                    <p>Director</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="{% static 'website/assets/images/team/team-4.jpg' %}" alt>
-                                </div>
-                                <div class="details">
-                                    <h3><a href="volunteer.html">Tajudeen Abdulazeez</a></h3>
-                                    <p>Director</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="{% static 'website/assets/images/team/team-5.jpg' %}" alt>
-                                </div>
-                                <div class="details">
-                                    <h3><a href="volunteer.html">Tamara Hove</a></h3>
-                                    <p>Director</p>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
