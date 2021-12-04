@@ -91,6 +91,8 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DEV_ENV = os.environ.get('DEV_ENV') # dev, test
 
+print(DEV_ENV)
+
 if DEV_ENV == "dev":
     DATABASES = {
         'default': {
@@ -125,7 +127,6 @@ else:
             'OPTIONS': {'sslmode': 'prefer'},
         }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -225,12 +226,20 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 10
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 1800
 ACCOUNT_PASSWORD_MIN_LENGTH = 8
 
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 # Other settings
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 SOCIALACCOUNT_AUTO_SIGNUP = False
 
 LOGIN_REDIRECT_URL = 'dashboard_home'
+LOGIN_URL = '/accounts/login/'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'website_home'
 
 ACCOUNT_FORMS = {

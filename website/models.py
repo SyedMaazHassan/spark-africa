@@ -36,8 +36,6 @@ class Cause(models.Model):
     picture = models.ImageField(upload_to='cause_images/')
     goal = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     rise = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    created_user = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name='cause_created_user', null=True, blank=True)
-    updated_user = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name='cause_updated_user', null=True, blank=True)
 
     def __str__(self):
         return str(self.title)
@@ -62,8 +60,6 @@ class Event(models.Model):
     status = models.BooleanField(default=True, blank=True)
     creation_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     creation_date = models.DateField(auto_now_add=True, blank=True, null=True)
-    created_user = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name='event_created_user', null=True, blank=True)
-    updated_user = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name='event_updated_user', null=True, blank=True)
 
     def __str__(self):
         return str(self.title)
@@ -80,10 +76,11 @@ class Subscribe(models.Model):
 
 class Volunteer(models.Model):
     name = models.CharField(max_length=255)
-    email = models.EmailField(null=True, blank=True)
-    occupation = models.CharField(max_length=255, null=True, blank=True)
-    picture = models.ImageField(upload_to='volunteer_images/', null=True, blank=True)
-    description = models.TextField(null=True, blank=True)
+    email = models.EmailField()
+    occupation = models.CharField(max_length=255)
+    picture = models.ImageField(upload_to='volunteer_images/')
+    description = models.TextField()
+    is_approved = models.BooleanField(default = True)
     creation_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     update_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 

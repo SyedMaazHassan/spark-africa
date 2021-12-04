@@ -1,20 +1,21 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from datetime import datetime
-from .forms import ContactForm, VolunteerForm
-from .models import Lead, Event, Cause, EventCategory, Contact, Subscribe, Volunteer, EventRegistration
+from .forms import *
+from .models import *
 from django.http import JsonResponse, HttpResponse
-
+from django.contrib.auth.decorators import login_required
+import re
 
 def website_home(request):
     causes = Cause.objects.all()[:5]
     events = Event.objects.all()[:5]
-    volunteers = Volunteer.objects.all()[:5]
+    volunteers = Volunteer.objects.filter(is_approved = True)[:5]
     context = {
         'causes': causes,
         'events': events,
         'volunteers': volunteers
-               }
+    }
     if request.method == "POST":
         data = request.POST
         email = data['email'].strip()
@@ -56,35 +57,29 @@ def cause_details(request, pk):
 
 def event_details(request, pk):
     event = Event.objects.get(id=pk)
-    context = {'event': event}
+    context = {
+        'event': event,
+        'is_registered': False
+    }
+
+    if request.user.is_authenticated:
+        filter_query = EventRegistration.objects.filter(user = request.user, event = event)
+        if filter_query.exists():
+            context['is_registered'] = True
+
+
     return render(request, 'sadakat/event_details.html', context)
 
 
 def contact(request):
-    # context = {}
-    # template_name = 'sadakat/contact.html',
-    #
-    # if request.method == "POST":
-    #     data = request.POST
-    #     Contact.objects.create(
-    #         name = data['name'],
-    #         email = data['email'],
-    #         phone = data['phone'],
-    #         address = data['address'],
-    #         note = data['address']
-    #     )
-    #     messages.success(request, 'Your message has been sent! Thank You')
-    #     return render(request, template_name, context=context)
-    # return render(request, template_name, context=context)
     form = ContactForm()
+
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request,
-                                 messages.SUCCESS, 'Thanks for contacting Us',
-                                 fail_silently=True)
-            return redirect('website_home')
+            messages.success(request, "Thanks for contacting us, we'll get back to you soon!")
+
     context = {'form': form}
     return render(request, 'sadakat/contact.html', context)
 
@@ -111,31 +106,58 @@ def events(request):
 
 def volunteer(request):
     form = VolunteerForm()
+
     if request.method == 'POST':
         form = VolunteerForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.add_message(request,
-                                 messages.SUCCESS, 'Volunteer created successfully',
-                                 fail_silently=True)
-            return redirect('website_home')
-    context = {'form': form}
+            messages.success(request, "Your volunteer request has been submitted!")
+            return redirect("volunteer")
+
+    context = {
+        'form': form,
+        'volunteers': Volunteer.objects.filter(is_approved = True)
+    }
     return render(request, 'sadakat/volunteer.html', context)
 
 
 def subscribe_to_newsletter(request):
+    output = {'status': False}
     email = request.GET.get('email')
-    Subscribe.objects.create(
-        email=email
-    )
-    data = {}
-    return JsonResponse(data)
+    regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+ 
+    if re.fullmatch(regex, email):
+        filter_query = Subscribe.objects.filter(email = email)
 
+        if filter_query.exists():
+            output['message'] = "You have already subscribed!"
+        else:
+            Subscribe.objects.create(
+                email=email
+            )
+            output['message'] = "You have successfully subscribed to our news letter!"
 
+        output['status'] = True
+    else:
+        output['message'] = "Please enter a valid email address!"
+
+    return JsonResponse(output)
+
+@login_required
 def register_to_event(request, pk):
-    event = Event.objects.get(id=pk)
-    EventRegistration.objects.create(
-        user=request.user,
-        event=event
-    )
-    return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))
+    filter_query = Event.objects.filter(id = pk)
+    if filter_query.exists():
+        event = filter_query[0]
+
+        filter_query_2 = EventRegistration.objects.filter(user = request.user, event = event)
+        if filter_query_2.exists():
+            messages.info(request, "You have already registered for this event!")
+        else:
+            EventRegistration.objects.create(
+                user=request.user,
+                event=event
+            )
+            messages.info(request, "Congratulations! you have been registered for this gret event!")
+        return redirect("event_details", pk=pk)
+    else:
+        return redirect("website_home")

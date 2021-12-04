@@ -1,0 +1,17 @@
+{% if not volunteers %}
+    <div class="alert alert-warning text-center" style="border-radius: 100px;" role="alert">
+        No volunteer exists right now!
+    </div>
+{% endif %}
+
+{% for volunteer in volunteers %}
+    <div class="grid">
+        <div class="img-holder">
+            <img src="{{ volunteer.picture.url }}" style="height: 300px; width: 100%;" alt>
+        </div>
+        <div class="details" style="border-radius: 20px;">
+            <h3><a href="#">{{ volunteer.name }}</a></h3>
+            <p>{{ volunteer.occupation }}</p>
+        </div>
+    </div>
+{% endfor %}

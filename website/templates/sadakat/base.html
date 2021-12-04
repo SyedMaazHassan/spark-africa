@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="wpoceans">
+    <base href="http://127.0.0.1:8000/">
     <title>Sparks of Africa</title>
     <link href="{% static 'website/assets/css/themify-icons.css' %}" rel="stylesheet">
     <link href="{% static 'website/assets/css/font-awesome.min.css' %}" rel="stylesheet">
@@ -86,11 +87,14 @@
                     <div class="col col-md-6 col-sm-5 col-12">
                         <div class="contact-info">
                             <ul>
-                                <li><a href="{% url 'account_login' %}">Login</a></li>
-                                <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-                                
-                                <li><a class="theme-btn" href="#">Donate Now</a></li> 
-                            <!--      <li> <strong> | </strong>  </li>  --> 
+                                {% if user.is_authenticated %}
+                                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
+                                    <li> <strong></strong>  </li>  
+                                    <li><a class="theme-btn" href="{% url 'account_login' %}">Go to portal</a></li>                  
+                                {% else %}
+                                    <li><a href="{% url 'account_login' %}">Login</a></li>
+                                    <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                                {% endif %}
                             <!--    <li><a class="fa fa-dashboard" style="font-size:48px" href="#"> </a></li> -->
 
                             </ul>
@@ -133,53 +137,7 @@
                         <li><a href="{% url 'contact' %}">Contact</a></li>
                     </ul>
                 </div><!-- end of nav-collapse -->
-                <div class="cart-search-contact">
-                    <div class="mini-cart">
-                        <button class="cart-toggle-btn"> <i class="fi flaticon-shopping-bag"></i> <span class="cart-count">02</span></button>
-                        <div class="mini-cart-content">
-                            <div class="mini-cart-title">
-                                <p>Shopping Cart</p>
-                            </div>
-                            <div class="mini-cart-items">
-                                <div class="mini-cart-item clearfix">
-                                    <div class="mini-cart-item-image">
-                                        <a href="#"><img src="{% static 'website/assets/images/shop/mini/img-1.jpg' %}" alt="Hoodie with zipper"></a>
-                                    </div>
-                                    <div class="mini-cart-item-des">
-                                        <a href="#">Hoodie with zipper</a>
-                                        <span class="mini-cart-item-price">$25.15</span>
-                                        <span class="mini-cart-item-quantity">x 1</span>
-                                    </div>
-                                </div>
-                                <div class="mini-cart-item clearfix">
-                                    <div class="mini-cart-item-image">
-                                        <a href="#"><img src="{% static 'website/assets/images/shop/mini/img-2.jpg' %}" alt="Hoodie with zipper"></a>
-                                    </div>
-                                    <div class="mini-cart-item-des">
-                                        <a href="#">Hoodie with zipper</a>
-                                        <span class="mini-cart-item-price">$12.99</span>
-                                        <span class="mini-cart-item-quantity">x 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mini-cart-action clearfix">
-                                <span class="mini-checkout-price">$255.12</span>
-                                <a href="" class="theme-btn-s4">View Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header-search-form-wrapper">
-                        <button class="search-toggle-btn"><i class="fi flaticon-magnifying-glass"></i></button>
-                        <div class="header-search-form">
-                            <form>
-                                <div>
-                                    <input type="text" class="form-control" placeholder="Search here...">
-                                    <button type="submit"><i class="fi flaticon-magnifying-glass"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+           
             </div><!-- end of container -->
         </nav>
 

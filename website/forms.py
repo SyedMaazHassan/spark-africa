@@ -25,6 +25,7 @@ class VolunteerForm(ModelForm):
         self.fields['occupation'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Enter Occupation'})
         self.fields['description'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Tell us about yourself'})
 
+
     class Meta:
         model = Volunteer
         fields = '__all__'

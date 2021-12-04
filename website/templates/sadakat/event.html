@@ -32,19 +32,13 @@
                 <div class="row">
                     <div class="col col-xs-12">
                         <div class="event-grids clearfix">
+                            {% if not current_events %}
+                                <div class="alert alert-warning text-center" style="border-radius: 100px;" role="alert">
+                                    No on-going events exists right now!
+                                </div>
+                            {%  endif %}
                             {% for current_event in current_events %}
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="{{ current_event.image.url }}" alt>
-                                </div>
-                                <div class="details">
-                                    <ul class="entry-meta">
-                                        <li><i class="ti-calendar"></i> {{ current_event.start_date }}</li>
-                                        <li><i class="ti-folder"></i> {{ current_event.category }}</li>
-                                    </ul>
-                                    <h3><a href="{% url 'event_details' current_event.id %}">{{ current_event.title }}</a></h3>
-                                </div>
-                            </div>
+                                {% include 'sadakat/inc/event-section.html' %}
                             {% endfor %}
                         </div>
                     </div>
@@ -57,19 +51,13 @@
                 <div class="row">
                     <div class="col col-xs-12">
                         <div class="event-grids clearfix">
-                            {% for upcoming_event in upcoming_events %}
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="{{ upcoming_event.image.url }}" alt>
-                                </div>
-                                <div class="details">
-                                    <ul class="entry-meta">
-                                        <li><a href="#"><i class="ti-calendar"></i> {{ upcoming_event.start_date }}</a></li>
-                                        <li><a href="#"><i class="ti-folder"></i> {{ upcoming_event.category }}</a></li>
-                                    </ul>
-                                    <h3><a href="event-single.html">{{ upcoming_event.title }}</a></h3>
-                                </div>
+                            {% if not upcoming_events %}
+                            <div class="alert alert-warning text-center" style="border-radius: 100px;" role="alert">
+                                No up-coming events exists right now!
                             </div>
+                            {%  endif %}
+                            {% for current_event in upcoming_events %}
+                                {% include 'sadakat/event-section.html' %}
                             {% endfor %}
                         </div>
                     </div>

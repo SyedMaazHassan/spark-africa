@@ -5396,7 +5396,7 @@ breadcumb-style
 ------------------------------------------------------------------*/
 
 .tp-breadcumb-area {
-    background: url(../images/breadcumb/img-1.jpg) no-repeat center top / cover;
+    background: url(/static/website/assets/images/breadcumb/img-1.jpg) no-repeat center top / cover;
     min-height: 350px;
     position: relative;
     display: flex;

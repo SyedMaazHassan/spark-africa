@@ -13,7 +13,7 @@
                         <div class="tp-breadcumb-wrap">
                             <h2>Become a Volunteer</h2>
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="{% url 'website_home' %}">Home</a></li>
                                 <li><span>Volunteer</span></li>
                             </ul>
                         </div>
@@ -33,7 +33,11 @@
                                     <span>Volunteer</span>
                                 </div>
                                 <h2>Become a Volunteer</h2>
-                                <p>It is a long established fact that reader distracted by the the readable content off page looking at its layout point.</p>
+                                <p>Sparks of Africa invites volunteers from all over the world to work with us on various projects in
+                                    Africa. You can lend your skills and time to any one of our causes and get the satisfaction and
+                                    meaning of life.
+                                    You can work as a volunteer from office, from remote locations on volunteer to go on ground
+                                    to affect real change.</p>
                             </div>
                         </div>
                     </div>
@@ -42,14 +46,24 @@
                             <div class="volunteer-item">
                                 <div class="volunteer-img-wrap">
                                     <div class="volunter-img">
-                                        <img src="assets/images/volunteer.jpg" alt="">
+                                        <img src="{% static 'website/assets/images/Volunteers-now.jpg' %}" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="volunteer-contact">
+                               
                                 <div class="volunteer-contact-form">
+                                
+                                    <div class="section-title-s3 text-center section-title-s5">
+                                        <h3 style="margin-top: 5px; margin-bottom: 30px;">Register as Volunteer</h3>
+                                    </div>
+                                    {% for message in messages %}
+                                        <div class="alert alert-success mt-0 text-center" style="border-radius: 100px;" role="alert">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
                                     <form method="post" action="" enctype="multipart/form-data">
                                         {% csrf_token %}
                                         <div class="row">
@@ -71,10 +85,7 @@
                                                 {{ form.description }}
                                             </div>
                                             <div class="submit-area col-lg-12 col-12">
-                                                <button type="submit" class="theme-btn submit-btn">Send Message</button>
-                                                <div id="loader">
-                                                    <i class="ti-reload"></i>
-                                                </div>
+                                                <button type="submit" class="theme-btn submit-btn">Submit</button>
                                             </div>
                                         </div>
 <!--                                        <div class="clearfix error-handling-messages">-->
@@ -86,6 +97,27 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <section class="team-section section-padding">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col col-lg-6 col-lg-offset-3">
+                                    <div class="section-title text-center">
+                                        <span>Meet Our Team</span>
+                                        <h2>Our Expert Volunteer</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-xs-12">
+                                    <div class="team-grids clearfix">
+                                        {% include 'sadakat/inc/volunteer-section.html' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>

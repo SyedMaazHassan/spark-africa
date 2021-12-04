@@ -37,16 +37,35 @@
                     <div class="col-md-6 col-sm-12 col-12">
                         <div class="about-content">
                             <div class="section-title">
+                                <div><i class="ti-folder"></i> {{ event.category }}</div>
+
                                 <h2> {{ event.title }} </h2>
                             </div>
                             <div class="details">
-                                    <ul class="entry-meta">
-                                        <li><i class="ti-calendar"></i> {{ event.start_date }}</li>
-                                        <li><i class="ti-folder"></i> {{ event.category }}</li>
-                                    </ul>
+                                    <div><i class="ti-calendar"></i>  <B>Starts from</B></div>
+                                    <div>{{ event.start_date }}</div>
+                                    <br>
+                                    <div><i class="ti-calendar"></i>  <B>Ends at</B></div>
+                                    <div>{{ event.end_date }}</div>
+                                    
+                                   
 <!--                                    <h3><a href="event-single.html">{{ event.title }}</a></h3>-->
                                 </div>
+                                <hr>
                             <p> {{ event.long_description }} </p>
+
+
+                            {% if is_registered %}
+                                <div class="alert alert-warning text-center" style="border-radius:100px;" role="alert">
+                                    You have registered for this event!
+                                </div>
+                            {% else %}
+                                <div class="submit-area">
+                                    <a href="{% url 'register_to_event' event.id %}">
+                                        <button type="submit" class="theme-btn submit-btn">Register now</button>
+                                    </a>
+                                </div>
+                            {% endif %}
 
                         </div>
                     </div>

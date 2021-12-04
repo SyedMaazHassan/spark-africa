@@ -9,12 +9,20 @@
                                 <h3>Subscribe our Newsletter</h3>
                                 <p> Don't miss out latest causes and events </p>
                                 <div class="newsletter-form">
-                                    <form method="post" id="subscribe_to_newsletter">
+                                    <form id="subscribe_to_newsletter">
                                         <div>
-                                            <input type="email" id="email" placeholder="Enter Your Email" class="form-control">
-                                            <button class="bigCursor" type="submit">Subscribe</button>
+                                            <input type="email" id="subscription_email" placeholder="Enter Your Email" class="form-control">
+                                            <button class="bigCursor" id="subscribe_btn" type="button">Subscribe</button>
+                                        </div>
+                                        <br>
+                                        <div class="alert alert-success my-5" id="subscription-success" style="border-radius: 100px; display: none;" role="alert">
+                                            
+                                        </div>                                        
+                                        <div class="alert alert-danger my-5" id="subscription-error" style="border-radius: 100px; display: none;" role="alert">
+                                            
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
@@ -25,22 +33,37 @@
 <!-- news-letter-section end-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-$(document).ready(function() {
-    $('#subscribe_to_newsletter').submit(function(e){
-        e.preventDefault();
-        $.ajax({
-            url: '/subscribe_to_newsletter/',
-            method: 'post',
-            data: {
-                'email': email,
-            },
-            success: function(data){
-                alert('You have Subscribed to Newsletter');
-            },
-            error: function(error){
-                alert('Sorry! There is an error.');
-            }
-        })
-    })
-})
+// $(document).ready(function() {
+    function show_hide_text(container_id, message) {
+        $(`#${container_id}`).text(message);
+        $(`#${container_id}`).show();
+        setTimeout(() => {
+            $(`#${container_id}`).hide();
+        }, 3000);
+    }
+
+    $('#subscribe_btn').click(function(){
+        let email = $("#subscription_email").val();
+        if (email.length > 0) {
+
+            $.ajax({
+                url: '/subscribe_to_newsletter/',
+                method: 'GET',
+                data: {
+                    'email': email,
+                },
+                success: function(response){
+                    if (response.status) {
+                        $("#subscription_email").val("");
+                        show_hide_text("subscription-success", response.message);
+                    }else{
+                        show_hide_text("subscription-error", response.message);
+                    }
+                }
+            });     
+        }else{
+            show_hide_text("subscription-error", "Please enter your email before submission!")
+        }
+    });
+// })
 </script>

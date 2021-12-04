@@ -1,0 +1,17 @@
+
+<div class="grid">
+    <div class="img-holder">
+        <img src="{{ current_event.image.url }}" alt>
+    </div>
+    <div class="details">
+        <h3 style="margin-top: 5px; margin-bottom: 5px;"><a href="{% url 'event_details' current_event.id %}">{{ current_event.title }}</a></h3>
+        <div><i class="ti-folder"></i> {{ current_event.category }}</div>
+        <hr>
+        <div><i class="ti-calendar"></i>  <B>Starts from</B></div>
+        <div>{{ current_event.start_date }}</div>
+        <br>
+        <div><i class="ti-calendar"></i>  <B>Ends at</B></div>
+        <div>{{ current_event.end_date }}</div>
+    
+    </div>
+</div>

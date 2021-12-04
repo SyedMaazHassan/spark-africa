@@ -199,29 +199,25 @@
                         <h2>Lets catch up on something big.</h2>
                     </div>
                 </div>
-                    {% for event in events %}
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="cause-item">
-                            <div class="cause-top">
-                                <div class="cause-img">
-                                    <img src="{{ event.image.url }}" alt="">
-                                    <div class="case-btn">
-                                        <a href="{% url 'register_to_event' event.id %}" class="theme-btn">Register Now</a>
-                                    </div>
-                                </div>
+                    
+            </div>
+            <div class="event-section section-padding container">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="event-grids clearfix">
+                            {% if not events %}
+                            <div class="alert alert-warning text-center" style="border-radius: 100px;" role="alert">
+                                No on-going events exist right now!
                             </div>
-                            <div class="cause-text">
-                                <ul>
-                                    <li><a href="#">{{ event.start_date }}</a></li>
-<!--                                    <li><a href="#">{{ event.end_date }}</a></li>-->
-                                </ul>
-                                <h3><a href="{% url 'event_details' event.id %}">{{ event.title }} </a></h3>
-                                <p>{{ event.description }}</p>
-                            </div>
+                            {%  endif %}
+                            {% for current_event in events %}
+                                {% include 'sadakat/inc/event-section.html' %}
+                            {% endfor %}
                         </div>
                     </div>
-                    {% endfor %}
+                </div>
             </div>
+            
         </div>
         <!-- case-area-end -->
         <!--Start project area-->
@@ -334,21 +330,11 @@
                 <div class="row">
                     <div class="col col-xs-12">
                         <div class="team-grids clearfix">
-                            {% for volunteer in volunteers %}
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="{{ volunteer.picture.url }}" alt>
-                                </div>
-                                <div class="details">
-                                    <h3><a href="#">{{ volunteer.name }}</a></h3>
-                                    <p>{{ volunteer.occupation }}</p>
-                                </div>
-                            </div>
-                            {% endfor %}
+                            {% include 'sadakat/inc/volunteer-section.html' %}
                         </div>
                     </div>
                 </div>
-            </div> <!-- end container -->
+            </div>
         </section>
         <!-- end team-section -->
         <!-- start event-section -->
